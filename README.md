@@ -18,6 +18,7 @@ Rather than treating macroeconomic cycles as driven purely by investor sentiment
    By closed-system balance-sheet conservation, this residual must clear through currency inflation ($\pi$), credit defaults ($D$), or equity valuations ($E_{\text{prem}}$).
 4. **Theorem 4 (`tightening_scales_crash` & `pivot_restores_support`):** When the central bank hikes the policy rate $P > R_{\text{total}}$ under price stability ($\pi = 0$), liquidity rotates into risk-free reserves, draining market support below legacy ZIRP overhang and mathematically forcing credit defaults ($D \ge \lambda(P - R_{\text{total}}) > 0$) until a policy pivot restores $P \le R_{\text{total}}$.
 5. **Theorem 5 (`full_reserve_price_discovery` & `full_reserve_prevents_forced_crash`):** Setting the reserve requirement to 100% ($r = 1$) collapses the geometric multiplier ($R_{\text{total}} = R$) and eliminates synthetic price distortion ($R_{\text{total}} - R = 0$). Splitting the true underlying T-bill residual $R$ between token holders and banks preserves market price discovery and eliminates forced rate-hike defaults without requiring a central bank backstop.
+6. - **Theorem 6 (`external_settlement_suppresses_inflation`):** Models open-economy settlement where scarce `L1` zero-time tokens force global trade to settle in short-term Treasury bills (`S_ext`), proving that offshore T-bill absorption (`S_ext > 0`) strictly suppresses domestic inflation (`π_open < π_closed`) rather than causing it.
 
 ## Repository Structure
 

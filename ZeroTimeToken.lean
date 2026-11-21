@@ -137,3 +137,33 @@ theorem full_reserve_prevents_forced_crash
   rw [pivot_restores_support s.P R s.R_legacy lam h_anchored_rate] at h_full_eq
   unfold conserves_residual at h_cons
   linarith
+
+-- ============================================================================
+-- 4. OPEN-ECONOMY EXTENSION (Global T-Bill Settlement Float)
+-- ============================================================================
+
+structure OpenMacroAbsorption where
+  inflation_tax : ℝ      -- π: Domestic currency inflation
+  credit_default : ℝ     -- D: Domestic asset/credit defaults
+  equity_premium : ℝ     -- E_prem: Residual absorbed by domestic assets
+  external_float : ℝ     -- S_ext: Short-term T-bills held abroad as T≈0 settlement proxies
+
+-- Open-system conservation: external T-bill settlement absorbs part of R_legacy
+def conserves_open_residual (m : OpenMacroAbsorption) (R_legacy : ℝ) : Prop :=
+  m.inflation_tax + m.credit_default + m.equity_premium + m.external_float = R_legacy
+
+-- Theorem 6: External T-Bill Settlement Demand Suppresses Domestic Inflation
+-- Comparing a closed ledger (S_ext = 0) to an open ledger (S_ext > 0) with identical
+-- domestic overhang, defaults, and equity absorption proves π_open < π_closed.
+theorem external_settlement_suppresses_inflation
+  (m_closed m_open : OpenMacroAbsorption) (R_legacy : ℝ)
+  (h_cons_closed : conserves_open_residual m_closed R_legacy)
+  (h_cons_open : conserves_open_residual m_open R_legacy)
+  (h_no_ext : m_closed.external_float = 0)
+  (h_pos_ext : m_open.external_float > 0)
+  (h_same_def : m_open.credit_default = m_closed.credit_default)
+  (h_same_eq : m_open.equity_premium = m_closed.equity_premium) :
+  m_open.inflation_tax < m_closed.inflation_tax := by
+  unfold conserves_open_residual at h_cons_closed h_cons_open
+  linarith
+

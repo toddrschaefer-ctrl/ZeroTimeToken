@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this Lean 4 formalization or economic model, please cite it as below."
+title: "Zero-Time Token & Residual Multiplier Model: Unified Field Theory of Economics"
+authors:
+  - family-names: "Schaefer"
+    given-names: "Todd"
+version: 1.0.0
+date-released: 2026-11-22
+url: "https://fidescurrency.com"
+repository-code: "https://github.com"
+keywords:
+  - "lean4"
+  - "formal-verification"
+  - "mathlib"
+  - "economics"
+  - "monetary-policy"
+  - "fractional-reserve"
